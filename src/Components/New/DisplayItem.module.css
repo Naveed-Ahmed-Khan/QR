@@ -10,9 +10,11 @@
 .img {
   object-fit: contain;
   margin-left: 20px;
-  width: 54px;
   padding-top: 10px;
   float: left;
+  width:70px;
+  height:70px;
+  border-radius: 50px;
 }
 
 .anchor {

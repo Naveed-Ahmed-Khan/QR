@@ -63,3 +63,24 @@
   background-color: lightgreen;
   border-color: lightgreen;
 }
+
+.anchor1 {
+  margin: 0px;
+  border-radius: 12px;
+}
+
+.anchor2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px;
+  border: 2px dashed #1cb56d;
+  border-radius: 12px;
+  height: 60px;
+  width: 100%;
+  /* font-size: larger; */
+}
+
+.grid1 {
+  grid-column: span 3;
+}

@@ -12,8 +12,7 @@ const Input = (props) => {
       )}
       <div style={{ paddingLeft: "15px", width: "100%" }}>
         <p className={classes.label}>{props.text}</p>
-
-        <input className={classes.input} placeholder="Enter Here" />
+        <input className={classes.input} placeholder="Enter Here" value={props.val} onChange={(e)=>props.setFun(e.target.value)}/>
       </div>
     </div>
   );

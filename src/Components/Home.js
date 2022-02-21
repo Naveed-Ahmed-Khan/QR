@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Header from "./Header";
 
 const Home = () => {
   return (
     <div>
       {/*Sliders Section*/}
+      <Header active="Home" />
       <section>
         <div className="banner-1 cover-image sptb-3 sptb-tab bg-background2 ">
           <div className="header-text mb-0">

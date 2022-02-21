@@ -1,0 +1,22 @@
+.flexItem {
+    border-radius: 10px;
+    width: 45%;
+    height: 80%;
+    margin: 10px;
+    background-color: white;
+    box-shadow: 2px 2.5px 7px 9px #fbfbfb;
+  }
+  
+  .img {
+    object-fit: contain;
+    margin-left: 20px;
+    width: 54px;
+    padding-top: 10px;
+    float: left;
+  }
+  
+  .anchor {
+    text-decoration: none;
+    color: #605e7e;
+  }
+  

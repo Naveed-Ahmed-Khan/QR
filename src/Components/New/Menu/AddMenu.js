@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import classes from "./AddMenu.module.css";
 
-const ViewSurvey = (props) => {
+const AddMenu = (props) => {
+  console.log("props:", props)
   const uploadMenuHandler = () => {
     props.onAltTab(true);
     props.onMenu("UPLOAD_MENU");
@@ -29,9 +30,10 @@ const ViewSurvey = (props) => {
             Download Template Excel{" "}
           </Link>
         </Link>
-        <h6 style={{ textAlign: "center" }}>OR</h6>
+        <h6 style={{ textAlign: "center"}}>OR</h6>
         <Link
           to="/dashboard/create-menu"
+          state={{data:props}}
           className={classes.anchor}
           style={{ color: "#1cb56d" }}
         >
@@ -42,4 +44,4 @@ const ViewSurvey = (props) => {
   );
 };
 
-export default ViewSurvey;
+export default AddMenu;

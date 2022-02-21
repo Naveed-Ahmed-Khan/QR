@@ -1,0 +1,31 @@
+.createMenu {
+    display: flex;
+    border: 2px solid #1cb56d;
+    width: 100%;
+    height: 45px;
+    border-radius: 8px;
+    width: 100%;
+    /* grid-column: span 2; */
+  }
+  
+  .icon {
+    object-fit: contain;
+    width: fit-content;
+    height: 35px;
+    margin-left: 15px;
+  }
+  .label {
+    width: 100%;
+    margin: 0;
+    padding-left: 2px;
+    color: #1cb56d;
+    font-weight: 500;
+  }
+  .input {
+    border-radius: 16px;
+    height: 40%;
+    width: 100%;
+    float: right;
+    border: none;
+  }
+  

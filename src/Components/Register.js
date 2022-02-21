@@ -1,6 +1,42 @@
 import React from "react";
 
 const Register = () => {
+  const [error, seterror] = useState([]);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("L");
+  const [email, setemail] = useState("");
+  const [dob, setDob] = useState("12-08-97");
+  const [gender, setGender] = useState("M");
+  const [contact, setcontact] = useState("03009846764");
+  const [password, setpassword] = useState("");
+
+  const API = async () => {
+
+    console.log(firstName,lastName, gender, dob, email, phonenumber, password)
+    await signup({
+      firstName,lastName, gender, dob, email, phonenumber, password
+
+    })
+      .then(function (response) {
+        if (response.data.message == "true") {
+          console.log("token: ", response.data.token);
+          try {
+            Cookies.set('token', response.data.token);
+            Cookies.set('mail', email);
+            routerHistory.push('./profile');
+          } catch (e) {
+            return null;
+          }
+
+        } else if (response.data.message === "false") {
+          seterror("User Already Existsed")
+        }
+
+      })
+      .catch(function (error) {
+
+      });
+  }
   return (
     <div>
       {/*Breadcrumb*/}
@@ -29,21 +65,25 @@ const Register = () => {
                   <form id="Register" className="card-body" tabIndex={500}>
                     <h3>Register</h3>
                     <div className="name">
-                      <input type="text" name="name" />
+                      <input type="text" name="firstname" value={firstName} onChange={(e) => setFirstName(e.target.value)} required/>
                       <label>Name</label>
                     </div>
+                    {/* <div className="name">
+                      <input type="text" name="lastname" value={lastName} onChange={(e) => setLastName(e.target.value)} required/>
+                      <label>Last Name</label>
+                    </div> */}
                     <div className="mail">
-                      <input type="email" name="mail" />
-                      <label>Mail or Username</label>
+                      <input type="email" name="mail" value={email} onChange={(e) => setemail(e.target.value)} required/>
+                      <label>Mail</label>
                     </div>
                     <div className="passwd">
-                      <input type="password" name="password" />
+                      <input type="password" name="password" value={password} onChange={(e) => setpassword(e.target.value)} required/>
                       <label>Password</label>
                     </div>
                     <div className="submit">
                       <a
                         className="btn btn-primary btn-block"
-                        href="index.html"
+                        onClick={() => API()}
                       >
                         Register
                       </a>

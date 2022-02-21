@@ -2,8 +2,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Header = () => {
-  const [activeTab, setActiveTab] = useState("Home");
+const Header = (props) => {
+  const [activeTab, setActiveTab] = useState(props.active);
   /* const [loginPopup, setLoginPopup] = useState(false); */
 
   const handleTab = (e, tabName) => {
@@ -150,7 +150,10 @@ const Header = () => {
                     style={
                       activeTab === "Home"
                         ? { marginRight: "10px", color: "white" }
-                        : { marginRight: "10px", color: "black" }
+                        : {
+                            marginRight: "10px",
+                            color: "#1cb56d",
+                          }
                     }
                   >
                     Home
@@ -165,7 +168,10 @@ const Header = () => {
                     style={
                       activeTab === "Home"
                         ? { marginRight: "10px", color: "white" }
-                        : { marginRight: "10px", color: "black" }
+                        : {
+                            marginRight: "10px",
+                            color: "#1cb56d",
+                          }
                     }
                   >
                     Login

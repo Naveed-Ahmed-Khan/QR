@@ -1,0 +1,73 @@
+.gridItem {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px 10px #fbfbfb;
+    padding: 15px 20px;
+    grid-row: span 2;
+  }
+  .gridItem h5 {
+    margin: 0 0 10px 0;
+  }
+  .menuContainer {
+    border: 2px solid #1cb56d;
+    border-radius: 12px;
+    padding: 15px;
+  }
+  .menuContainer p {
+    margin: 0;
+  }
+  .menuContainer h5 {
+    margin: 10px 0 0 0;
+  }
+  
+  .menuHeader {
+    border-radius: 10px;
+    background-color: #e5e5e5;
+    padding: 5px 15px 15px 15px;
+  }
+  
+  .itemList {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: white;
+    margin: 15px 0 0 0;
+    padding: 15px 0;
+  }
+  
+  .itemList h5 {
+    margin: 0;
+    width: 50%;
+    text-align: center;
+  }
+  
+  .MenuP3 {
+   
+    height: 30px;
+    align-items: center;
+    background-color: white;
+    border-radius: 6px;
+  }
+  .MenuP4 {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    background-color: #e5e5e5;
+    border-radius: 6px;
+  }
+  
+  .MenuItems{
+    display: flex;
+    margin: 5px;
+  }
+  
+  #button {
+    margin-top: 10px;
+    background-color: #1cb56d;
+    color: white;
+    border-radius: 12px;
+  }
+  .itemList::-webkit-scrollbar {
+    display: none;
+  }
+  

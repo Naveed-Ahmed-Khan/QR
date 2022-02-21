@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from "react";
-import classes from "./DisplayList.module.css";
-import { Link } from "react-router-dom";
-import classes2 from "./DisplayItem.module.css";
-import DisplayItem from "./DisplayItem";
-import List from "./List";
+import classes from "./Qr.module.css";
 import Cookies from 'js-cookie';
-import { fetchUserMenus } from '../../APIs/api';
+import { fetchUserMenus } from '../../../APIs/api';
 
-
-const DisplayItemList = (props) => {
+const Qr = () => {
 
   const [menus, setMenus] = useState([]);
   const [error, seterror] = useState("");
@@ -40,16 +35,21 @@ const DisplayItemList = (props) => {
 
   }, [])
   return (
-    <>
-      <div className={`${classes.gridItem} ${classes.item3}`}>
-        <h5 style={{ paddingLeft: "20px" }}> All Menus</h5>
-        <div className={classes.flexRow1}>
-          <List lists={menus} />
-        
-        </div>
+    <div className={`${classes.gridItem} ${classes.item3}`}>
+      <h5 style={{ paddingLeft: "20px" }}> All Menus</h5>
+      <div className={classes.flexRow1}>
+        {menus.map((item, key) => (
+
+          <div className={classes.imgContainer}>
+            <img className={classes.image} src={item.qrcode} />
+            <h3 style={{textAlign:'center'}}>{item.name}</h3>
+          </div>
+
+        ))}
       </div>
-    </>
+      <div className={classes.flexRow2}>{/* <List text={props.text} /> */}</div>
+    </div>
   );
 };
 
-export default DisplayItemList;
+export default Qr;
