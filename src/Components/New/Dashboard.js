@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
+import QrCodeScannerIcon from "@mui/icons-material/QrCodeScanner";
 import classes from "./Dashboard.module.css";
 import { Link, Outlet } from "react-router-dom";
-import Cookies from 'js-cookie';
-import { logedinuser } from '../../APIs/api';
+import Cookies from "js-cookie";
+import { logedinuser } from "../../APIs/api";
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState("MENU");
@@ -12,32 +13,28 @@ const Dashboard = () => {
   const [error, seterror] = useState("");
 
   useEffect(async () => {
-
     await logedinuser({
-      token: Cookies.get('token')
+      token: Cookies.get("token"),
     })
       .then(function (response) {
         //   console.log(response);
         if (response.data.message === true) {
-          console.log("res:", response.data)
+          console.log("res:", response.data);
           try {
             seterror("");
             setuser(response.data.user);
-
           } catch (e) {
             return null;
           }
         } else if (response.data.message === false) {
-          seterror(response.data.error)
+          seterror(response.data.error);
         }
-
       })
       .catch(function (error) {
-        console.log("error:", error.message)
+        console.log("error:", error.message);
       });
+  }, []);
 
-  }, [])
-  
   const menuTabHandler = () => {
     setActiveTab("MENU");
   };
@@ -109,11 +106,12 @@ const Dashboard = () => {
               />
               <span>QR Codes</span>
             </Link>
-            <Link className={`${classes.sideItem} ${classes.side3}`}
+            <Link
+              className={`${classes.sideItem} ${classes.side3}`}
               to="/login"
               onClick={() => {
-                Cookies.remove('token')
-                Cookies.remove('mail')
+                Cookies.remove("token");
+                Cookies.remove("mail");
               }}
             >
               <img
@@ -125,7 +123,7 @@ const Dashboard = () => {
             </Link>
           </div>
           <div className={`${classes.gridItem} ${classes.item2}`}>
-            <h6 style={{ color: 'red' }}>{error}</h6>
+            <h6 style={{ color: "red" }}>{error}</h6>
             <h4 style={{ color: "#1cb56d", paddingLeft: "20px" }}>Menus</h4>
             <div
               style={{
@@ -150,8 +148,7 @@ const Dashboard = () => {
           </div>
           <Outlet />
         </div>
-      </div >
-
+      </div>
     </>
   );
 };

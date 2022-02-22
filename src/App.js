@@ -38,7 +38,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Signin />} />
-            <Route path="/menu" element={<UploadMenu />} />
             <Route path="/dashboard" element={<Dashboard />}>
               <Route index element={<Menu />} />
               <Route path="/dashboard/menu" element={<Menu />} />

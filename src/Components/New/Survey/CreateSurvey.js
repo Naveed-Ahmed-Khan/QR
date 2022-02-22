@@ -82,7 +82,6 @@ const CreateSurvey = () => {
       <h6>Create Survey</h6>
       <div className={classes.item4}>
         <Input
-          className={classes.sub1}
           imageSrc="../assets/images/brand/survey.png"
           text="Survey Name"
           span="2"
@@ -90,7 +89,6 @@ const CreateSurvey = () => {
           val={name}
         />
         <Input
-          className={classes.sub1}
           imageSrc="../assets/images/brand/pin.png"
           text="Address"
           span="2"
@@ -98,7 +96,6 @@ const CreateSurvey = () => {
           val={address}
         />
         <Input
-          className={classes.sub1}
           imageSrc="../assets/images/brand/building.png"
           text="City"
           span="2"
@@ -106,14 +103,21 @@ const CreateSurvey = () => {
           val={city}
         />
         <Input
-          className={classes.sub1}
           imageSrc="../assets/images/brand/bars.png"
           text="Description"
           span="2"
           setFun={setDesc}
           val={description}
         />
-        <label className={`${classes.anchor2}`} style={{ color: "#1cb56d" }}>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          height: "100%",
+        }}
+      >
+        <label className={`${classes.anchor2}`}>
           <input
             className={` ${classes.anchor1} `}
             type="file"
@@ -126,16 +130,26 @@ const CreateSurvey = () => {
           Upload Header Image
         </label>
         <Button
-          style={{ gridColumn: "span 1" }}
+          style={{ width: "45%", marginRight: "28px" }}
           variant="contained"
-          fullWidth
           id="button"
           onClick={() => addSurvey()}
         >
           Create Survey
         </Button>
-        <p style={{ textAlign: "center", color: "#2A48A0" }}>{file1}</p>
       </div>
+
+      <p
+        style={{
+          textAlign: "center",
+          color: "#2A48A0",
+          margin: "5px 10px 0",
+          height: "1.75em",
+          width: "50%",
+        }}
+      >
+        {file1}
+      </p>
     </div>
   );
 };
