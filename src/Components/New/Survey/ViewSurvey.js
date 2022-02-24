@@ -1,39 +1,34 @@
 import React, { useState, useEffect } from "react";
 import classes from "./ViewSurvey.module.css";
-import Cookies from 'js-cookie';
-import { fetchUserSurveys } from '../../../APIs/api';
+import Cookies from "js-cookie";
+import { fetchUserSurveys } from "../../../APIs/api";
 
 const ViewSurvey = () => {
-
   const [surveys, setsurveys] = useState([]);
   const [error, seterror] = useState("");
 
   useEffect(async () => {
-
     await fetchUserSurveys({
-      uid: Cookies.get('id')
+      uid: Cookies.get("id"),
     })
       .then(function (response) {
         //   console.log(response);
         if (response.data.message === true) {
-          console.log("res menu:", response.data)
+          console.log("res menu:", response.data);
           try {
             seterror("");
             setsurveys(response.data.surveys);
-
           } catch (e) {
             return null;
           }
         } else if (response.data.message === false) {
-          seterror(response.data.error)
+          seterror(response.data.error);
         }
-
       })
       .catch(function (error) {
-        console.log("error:", error.message)
+        console.log("error:", error.message);
       });
-
-  }, [])
+  }, []);
   return (
     <div className={classes.gridItem}>
       <h6 style={{ color: "#1cb56d", marginBottom: "10px" }}>View Survey</h6>
@@ -53,7 +48,6 @@ const ViewSurvey = () => {
               style={{
                 width: "70px",
                 objectFit: "contain",
-                marginBottom: "10px",
               }}
             />
             <p style={{ width: "220px", marginTop: "18px" }}>
@@ -66,7 +60,6 @@ const ViewSurvey = () => {
           </div>
         ))}
       </div>
-
     </div>
   );
 };
