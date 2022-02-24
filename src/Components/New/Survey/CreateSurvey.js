@@ -82,6 +82,7 @@ const CreateSurvey = () => {
       <h6>Create Survey</h6>
       <div className={classes.item4}>
         <Input
+          className={classes.sub1}
           imageSrc="../assets/images/brand/survey.png"
           text="Survey Name"
           span="2"
@@ -89,6 +90,7 @@ const CreateSurvey = () => {
           val={name}
         />
         <Input
+          className={classes.sub1}
           imageSrc="../assets/images/brand/pin.png"
           text="Address"
           span="2"
@@ -96,6 +98,7 @@ const CreateSurvey = () => {
           val={address}
         />
         <Input
+          className={classes.sub1}
           imageSrc="../assets/images/brand/building.png"
           text="City"
           span="2"
@@ -103,6 +106,7 @@ const CreateSurvey = () => {
           val={city}
         />
         <Input
+          className={classes.sub1}
           imageSrc="../assets/images/brand/bars.png"
           text="Description"
           span="2"
@@ -110,16 +114,10 @@ const CreateSurvey = () => {
           val={description}
         />
       </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          height: "100%",
-        }}
-      >
-        <label className={`${classes.anchor2}`}>
+      <div className={classes.grid1}>
+        <label className={`${classes.anchor2}`} style={{ color: "#1cb56d" }}>
           <input
-            className={` ${classes.anchor1} `}
+            className={` ${classes.anchor1}`}
             type="file"
             label="Image"
             name="myFile"
@@ -129,8 +127,10 @@ const CreateSurvey = () => {
           />
           Upload Header Image
         </label>
+
         <Button
-          style={{ width: "45%", marginRight: "28px" }}
+          style={{ width: "50%", margin: "0" }}
+          fullWidth
           variant="contained"
           id="button"
           onClick={() => addSurvey()}
@@ -138,16 +138,7 @@ const CreateSurvey = () => {
           Create Survey
         </Button>
       </div>
-
-      <p
-        style={{
-          textAlign: "center",
-          color: "#2A48A0",
-          margin: "5px 10px 0",
-          height: "1.75em",
-          width: "50%",
-        }}
-      >
+      <p style={{ textAlign: "center", color: "#2A48A0", height: "20px" }}>
         {file1}
       </p>
     </div>

@@ -35,6 +35,7 @@ function App() {
     <div className="main-body">
       <div className="horizontalMenucontainer">
         <BrowserRouter>
+          <Header />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Signin />} />
@@ -64,7 +65,7 @@ function App() {
               />
             </Route>
           </Routes>
-          {/* <Footer /> */}
+          <Footer />
         </BrowserRouter>
       </div>
     </div>

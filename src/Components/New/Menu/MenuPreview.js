@@ -13,7 +13,8 @@ const MenuPreview = (props) => {
   
   const addMenu = async () => {
 
-    console.log("props:", props);
+    console.log("length:", props.items.length)
+    if(props.items.length!=0){
     await createMenu({
       resturantName: props.resturantName,
       address: props.address,
@@ -46,6 +47,9 @@ const MenuPreview = (props) => {
       .catch(function (error) {
         console.log("error:", error.message)
       });
+    }else{
+      alert("Add atleast one item");
+    }
   }
   return (
     <div className="gridItem">
@@ -100,6 +104,7 @@ const MenuPreview = (props) => {
         </body>
       </div>
       <div>
+        
         <Button variant="contained" fullWidth id="button" onClick={()=>addMenu()}>
           Create Menu
         </Button>

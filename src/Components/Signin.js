@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router";
-import Cookies from "js-cookie";
-import { signup, login } from "../APIs/api";
-import Header from "./Header";
+import { useNavigate } from 'react-router';
+import Cookies from 'js-cookie';
+import { signup, login } from '../APIs/api';
 
 const Signin = () => {
   const navigate = useNavigate();
@@ -19,75 +18,80 @@ const Signin = () => {
   const [loginPassword, setLoginpassword] = useState("");
   const [check, setcheck] = useState(false);
 
+
   useEffect(() => {
+
     const token = Cookies.get("token");
     if (token) {
-      navigate("/dashboard");
+      navigate('/dashboard')
     }
-  }, [check]);
+  }, [check])
   const Login = async () => {
+    
     await login({
-      email: loginEmail,
-      password: loginPassword,
+      email:loginEmail, password:loginPassword
     })
       .then(function (response) {
         //   console.log(response);
         if (response.data.message === true) {
           seterror("");
           try {
-            Cookies.set("token", response.data.token);
-            Cookies.set("id", response.data.user._id);
-            navigate("/dashboard");
+            Cookies.set('token', response.data.token);
+            Cookies.set('id', response.data.user._id);
+            navigate('/dashboard');
           } catch (e) {
             return null;
           }
+
         } else if (response.data.message === false) {
-          console.log("res:", response.data);
+          console.log("res:", response.data)
           seterror(response.data.error);
         }
+
       })
-      .catch(function (error) {});
-  };
+      .catch(function (error) {
+
+      });
+  }
 
   const API = async () => {
     if (firstName.length !== 0 && email.length !== 0 && password.length !== 0) {
-      if (email.includes("@")) {
-        console.log(firstName, lastName, gender, dob, email, contact, password);
+      if (email.includes('@')) {
+        console.log(firstName, lastName, gender, dob, email, contact, password)
         await signup({
-          firstName,
-          lastName,
-          gender,
-          dob,
-          email,
-          contact,
-          password,
+          firstName, lastName, gender, dob, email, contact, password
         })
           .then(function (response) {
             if (response.data.message === true) {
-              seterror("");
+              seterror("")
               try {
-                Cookies.set("token", response.data.token);
-                Cookies.set("id", response.data.user);
-                navigate("/dashboard");
+                Cookies.set('token', response.data.token);
+                Cookies.set('id', response.data.user);
+                navigate('/dashboard');
               } catch (e) {
                 return null;
               }
+
             } else if (response.data.message === false) {
-              seterror("User Already Existsed");
+              
+              seterror("User Already Existsed")
             }
+
           })
-          .catch(function (error) {});
-      } else {
+          .catch(function (error) {
+
+          });
+      }
+      else {
         alert("Invalid Email");
       }
     } else {
       alert("Fill out the fields");
     }
-  };
+  }
   return (
     <div>
       {/*Breadcrumb*/}
-      <Header active="Signin" />
       <section style={{ width: "50%", float: "left" }}>
         <div
           className="bannerimg cover-image bg-background3"
@@ -113,51 +117,28 @@ const Signin = () => {
                               id="login"
                               className="card-body"
                               tabIndex={500}
-                              onSubmit={(e) => {
-                                e.preventDefault();
-                              }}
+                              onSubmit={e => { e.preventDefault(); }}
                             >
                               <h3>Login</h3>
-                              <h6 style={{ color: "red" }}>{error}</h6>
+                              <h6 style={{color:'red'}}>{error}</h6>
                               <div className="mail">
-                                <input
-                                  type="email"
-                                  name="mail"
-                                  value={loginEmail}
-                                  onChange={(e) =>
-                                    setLoginEmail(e.target.value)
-                                  }
-                                  required
-                                />
+                                <input type="email" name="mail" value={loginEmail} onChange={(e) => setLoginEmail(e.target.value)} required />
                                 <label>Mail</label>
                               </div>
                               <div className="passwd">
-                                <input
-                                  type="password"
-                                  name="password"
-                                  value={loginPassword}
-                                  onChange={(e) =>
-                                    setLoginpassword(e.target.value)
-                                  }
-                                  required
-                                />
+                                <input type="password" name="password" value={loginPassword} onChange={(e) => setLoginpassword(e.target.value)} required />
                                 <label>Password</label>
                               </div>
                               <div className="submit">
                                 <button
-                                  className="btn btn-success btn-block"
+                                  className="btn btn-primary btn-block"
                                   onClick={() => Login()}
                                 >
                                   Login
                                 </button>
                               </div>
                               <p className="mb-2">
-                                <Link
-                                  to="forgot.html"
-                                  style={{ color: "#1cb56d" }}
-                                >
-                                  Forgot Password
-                                </Link>
+                                <Link to="forgot.html">Forgot Password</Link>
                               </p>
                               {/* <p className="text-dark mb-0">
                                 Don't have account?
@@ -211,7 +192,7 @@ const Signin = () => {
         <div
           className="bannerimg cover-image"
           data-bs-image-src="../assets/images/banners/banner2.jpg"
-          /* style={{ backgroundColor: "white" }} */
+        /* style={{ backgroundColor: "white" }} */
         >
           <div className="header-text mb-0">
             <div className="container">
@@ -226,49 +207,28 @@ const Signin = () => {
                       >
                         <div className="" style={{ width: "370px" }}>
                           <div className="wrapper wrapper2">
-                            <form
-                              onSubmit={(e) => {
-                                e.preventDefault();
-                              }}
+                            <form onSubmit={e => { e.preventDefault(); }}
                               id="Register"
                               className="card-body"
                               tabIndex={500}
                             >
                               <h3>Register</h3>
-                              <h6 style={{ color: "red" }}>{error}</h6>
+                              <h6 style={{color:'red'}}>{error}</h6>
                               <div className="name">
-                                <input
-                                  type="text"
-                                  name="name"
-                                  value={firstName}
-                                  onChange={(e) => setFirstName(e.target.value)}
-                                  required
-                                />
+                                <input type="text" name="name" value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
                                 <label>Name</label>
                               </div>
                               <div className="mail">
-                                <input
-                                  type="email"
-                                  name="mail"
-                                  value={email}
-                                  onChange={(e) => setemail(e.target.value)}
-                                  required
-                                />
+                                <input type="email" name="mail" value={email} onChange={(e) => setemail(e.target.value)} required />
                                 <label>Mail or Username</label>
                               </div>
                               <div className="passwd">
-                                <input
-                                  type="password"
-                                  name="password"
-                                  value={password}
-                                  onChange={(e) => setpassword(e.target.value)}
-                                  required
-                                />
+                                <input type="password" name="password" value={password} onChange={(e) => setpassword(e.target.value)} required />
                                 <label>Password</label>
                               </div>
                               <div className="submit">
                                 <button
-                                  className="btn btn-success btn-block"
+                                  className="btn btn-primary btn-block"
                                   onClick={() => API()}
                                 >
                                   Register

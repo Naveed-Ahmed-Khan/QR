@@ -19,7 +19,7 @@ const ViewSurvey = () => {
           console.log("res menu:", response.data)
           try {
             seterror("");
-            setsurveys(response.data.survey);
+            setsurveys(response.data.surveys);
 
           } catch (e) {
             return null;

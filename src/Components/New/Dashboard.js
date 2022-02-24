@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import QrCodeScannerIcon from "@mui/icons-material/QrCodeScanner";
 import classes from "./Dashboard.module.css";
 import { Link, Outlet } from "react-router-dom";
 import Cookies from "js-cookie";
@@ -71,7 +70,7 @@ const Dashboard = () => {
                 className={classes.tabImage}
                 src="../assets/images/brand/fastFood.png"
                 alt="Food-item"
-              />{" "}
+              />
               <span style={{ marginRight: "80px" }}> Menu</span>
             </Link>
             <Link
@@ -123,8 +122,8 @@ const Dashboard = () => {
             </Link>
           </div>
           <div className={`${classes.gridItem} ${classes.item2}`}>
-            <h6 style={{ color: "red" }}>{error}</h6>
             <h4 style={{ color: "#1cb56d", paddingLeft: "20px" }}>Menus</h4>
+            {error && <h6 style={{ color: "red" }}>{error}</h6>}
             <div
               style={{
                 width: "18%",
@@ -138,7 +137,7 @@ const Dashboard = () => {
                 alt=""
                 style={{
                   borderRadius: "100%",
-                  paddingBottom: "10px",
+
                   height: "60px",
                   width: "60px",
                 }}

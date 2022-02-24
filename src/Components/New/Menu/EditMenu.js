@@ -2,10 +2,10 @@ import { Button } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
 import Input from "../Input";
 import Cookies from 'js-cookie';
-import { useParams } from "react-router-dom"
 import classes from "./EditMenu.module.css";
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router';
+import MenuPreview2 from "./MenuPreview2";
 import { fetchMenu, editMenu } from '../../../APIs/api';
 
 const EditMenu = () => {
@@ -17,12 +17,13 @@ const EditMenu = () => {
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [name, setName] = useState("");
+  const [itemName, setItemName] = useState("");
   const [contact, setContact] = useState("");
   const [price, setPrice] = useState("");
   const [file1, setFile1] = useState("");
   const [file2, setFile2] = useState("");
   const [items, setItems] = useState([]);
-  const [check, setcheck ] = useState(false);
+  const [check, setcheck] = useState(false);
   const [description, setdessc] = useState("");
   const [headerImg, setheaderImg] = useState("");
   const [backgroundImg, setbackImg] = useState("");
@@ -56,10 +57,34 @@ const EditMenu = () => {
       })
       .catch(function (error) {
         console.log("error:", error.message)
+        
       });
   }, [check])
 
 
+  const addItem = async () => {
+
+    if (itemName.length !== 0 && price.length !== 0 && description.length !== 0) {
+      seterror("");
+      const objID = Math.floor(Math.random() * 10000000000);
+      var itemObj = {};
+      itemObj.name = itemName;
+      itemObj.price = price;
+      itemObj.description = description;
+      itemObj.id = objID;
+
+      items.push(itemObj);
+
+      console.log("item added!", items)
+      setItemName("");
+      setPrice("");
+      setdessc("");
+    } else {
+      seterror("Fill out all fields");
+    }
+
+
+  }
   const getBase64 = (file) => {
     return new Promise(resolve => {
       let baseURL = "";
@@ -99,7 +124,7 @@ const EditMenu = () => {
   };
 
   const handleBackImgChange = (e) => {
-    console.log("Fileeee: ", e.target.files[0]);
+   
 
     var file = e.target.files[0];
     setFile2(file.name)
@@ -115,7 +140,7 @@ const EditMenu = () => {
 
   const updateMenu = async () => {
 
-    // alert("edit");
+
     await editMenu({
       resturantName,
       address,
@@ -126,23 +151,22 @@ const EditMenu = () => {
       user: Cookies.get('id'),
       headerImg,
       backgroundImg,
-      mid:location.state.id
-      
+      mid: location.state.id
+
 
     }).then(function (response) {
       //   console.log(response);
       if (response.data.message === true) {
-        console.log("res:", response.data)
+      
         try {
           seterror("");
           alert("Menu Edited");
           navigate('/dashboard');
-
         } catch (e) {
           return null;
         }
       } else if (response.data.message === false) {
-        console.log("error res:", response.data.error)
+        
         seterror(response.data.error)
       }
 
@@ -163,7 +187,7 @@ const EditMenu = () => {
         >
           Edit Menu
         </h6>
-        <p style={{ margin: "0 0 5px 20px", height: "fit-content" }}>
+        <p style={{ margin: "0 0 5px 20px", height: "fit-content", color: "#848487", marginLeft: 20 }}>
           Restaurant Details
         </p>
         <div className={classes.item4}>
@@ -203,20 +227,30 @@ const EditMenu = () => {
             setFun={setName}
             val={name}
           />
-          {/* <p
+          <p
             style={{
               margin: "0 0 5px 0px",
               height: "fit-content",
               gridColumn: "span 2",
+              color: "#848487",
+              marginLeft: 3
             }}
           >
-            Menu Item Details
+            Add New Items
           </p>
-          <Input imageSrc="" text="Item Name" span="1" />
-          <Input imageSrc="" text="Item Price" span="1" />
+          <div style={{  gridColumn: "span 2"}}> <p style={{ color: 'red', marginLeft: 3}}>{error}</p></div>
+         
+          <Input
+            imageSrc=""
+            text="Item Name"
+            span="1"
+            setFun={setItemName}
+            val={itemName} />
+          <Input imageSrc="" text="Item Price" span="1" setFun={setPrice}
+            val={price} />
           <div
             style={{
-              width: "100%",
+              width: "93%",
               border: "2px solid #1cb56d ",
               borderRadius: "12px",
               padding: "5px 20px",
@@ -228,8 +262,17 @@ const EditMenu = () => {
             <textarea
               style={{ width: "100%", height: "50px", border: "none" }}
               placeholder="Enter Here"
+              value={description}
+              onChange={(e) => setdessc(e.target.value)}
+              required
             />
-          </div> */}
+          </div>
+
+          <div style={{ gridColumn: "span 2" }}>
+            <Button variant="contained" fullWidth id="button" onClick={() => addItem()} style={{ marginBottom: 10 }}>
+              Add Item
+            </Button>
+          </div>
           <label
             className={`${classes.anchor2} ${classes.grid2}`}
             style={{
@@ -246,7 +289,7 @@ const EditMenu = () => {
               label="Image"
               name="myFile"
               accept=".jpeg, .png, .jpg"
-              style={{ display: "none" }}
+              style={{ display: "none", marginTop: 10 }}
               onChange={(e) => handleheaderImgChange(e)}
 
             />
@@ -283,25 +326,27 @@ const EditMenu = () => {
               justifyContent: "space-between",
             }}
           >
-            <Button variant="contained" style={{ width: "48%" }} id="button" onClick={()=>updateMenu()}>
+            <Button variant="contained" style={{ width: "48%" }} id="button" onClick={() => updateMenu()}>
               Update Item
             </Button>
-            <Button variant="contained" style={{ width: "48%" }} id="button">
+            <Button variant="contained" style={{ width: "48%" }} id="button" onClick={() => { navigate('/dashboard') }}>
               Cancel
             </Button>
           </div>
         </div>
       </div>
-      {/* <MenuPreview
-        resturantName={menu.restaurantName}
-        address={menu.address}
-        city={menu.city}
-        contact={menu.contact}
-        name={menu.name}
-        items={menu.items}
-        headerImg={menu.headerImg}
-        backgroundImg={menu.backgroundImg}
-      /> */}
+      <MenuPreview2
+        resturantName={resturantName}
+        address={address}
+        city={city}
+        contact={contact}
+        name={name}
+        items={items}
+        setItems={setItems}
+        headerImg={headerImg}
+        backgroundImg={backgroundImg}
+        delete={true}
+      />
       {/* <MenuPreview menu={menu}/> */}
     </>
   );

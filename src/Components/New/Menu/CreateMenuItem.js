@@ -75,9 +75,11 @@ const CreateMenuItem = () => {
   const addItem = async () => {
 
     var itemObj = {};
+    const objID = Math.floor(Math.random() * 10000000000);
     itemObj.name = name;
     itemObj.price = price;
     itemObj.description = description;
+    itemObj.id = objID;
 
     items.push(itemObj);
 
@@ -174,6 +176,7 @@ const CreateMenuItem = () => {
       items={items}
       headerImg={headerImg}
       backgroundImg={backgroundImg}
+      
       />
     </>
   );

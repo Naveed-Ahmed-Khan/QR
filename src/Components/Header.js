@@ -2,8 +2,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Header = (props) => {
-  const [activeTab, setActiveTab] = useState(props.active);
+const Header = () => {
+  const [activeTab, setActiveTab] = useState("Home");
   /* const [loginPopup, setLoginPopup] = useState(false); */
 
   const handleTab = (e, tabName) => {
@@ -79,7 +79,7 @@ const Header = (props) => {
             <a id="horizontal-navtoggle" className="animated-arrow">
               <span />
             </a>
-            <span className="smllogo">
+            {/* <span className="smllogo">
               <img
                 className="mobile-light-logo"
                 src="../assets/images/brand/newLogo.png"
@@ -92,7 +92,7 @@ const Header = (props) => {
                 alt=""
                 height="100%"
               />
-            </span>
+            </span> */}
             <a href="tel:245-6325-3256" className="callusbtn">
               <i className="fa fa-phone" aria-hidden="true" />
             </a>
@@ -150,10 +150,7 @@ const Header = (props) => {
                     style={
                       activeTab === "Home"
                         ? { marginRight: "10px", color: "white" }
-                        : {
-                            marginRight: "10px",
-                            color: "#1cb56d",
-                          }
+                        : { marginRight: "10px", color: "black" }
                     }
                   >
                     Home
@@ -168,10 +165,7 @@ const Header = (props) => {
                     style={
                       activeTab === "Home"
                         ? { marginRight: "10px", color: "white" }
-                        : {
-                            marginRight: "10px",
-                            color: "#1cb56d",
-                          }
+                        : { marginRight: "10px", color: "black" }
                     }
                   >
                     Login

@@ -2,7 +2,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 
 const API = axios.create({ baseURL: 'https://qr1-app-server.herokuapp.com/' });
-// const API = axios.create({ baseURL: 'http://localhost:5000/' });
+//  const API = axios.create({ baseURL: 'http://localhost:5000/' });
 
 API.interceptors.request.use(req => {
   if (Cookies.get('token')) {
@@ -23,3 +23,4 @@ export const editMenu =(mid)=> API.post(`user/editMenu`,mid);
 export const deleteMenu =(mid)=> API.post(`user/deleteMenu`,mid);
 export const fetchUserSurveys =(uid)=> API.post(`user/userSurveys`,uid);
 export const fetchSurvey =(sid)=> API.post(`user/getSurvey`,sid);
+export const deleteSurvey =(sid)=> API.post(`user/deleteSurvey`,sid);
