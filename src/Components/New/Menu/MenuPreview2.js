@@ -43,7 +43,7 @@ const MenuPreview2 = (props) => {
             {props.contact}
           </p>
         </header>
-        <body className="itemList">
+        <div className="itemList">
           {/* <p style={{color:'#098F68', fontSize:14}}>{msg}</p> */}
           <div className="MenuP4">
             <h5>Item Price</h5>
@@ -62,7 +62,7 @@ const MenuPreview2 = (props) => {
               </>
             ))}
           </div>
-        </body>
+        </div>
       </div>
       <div></div>
     </div>

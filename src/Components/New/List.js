@@ -40,7 +40,7 @@ const List = (props) => {
         props.lists.map((item, key) => (
           <div
             className={classes.flexItem}
-            onClick={() => props.setCurrentMenu(item._id)}
+            onClick={() => props?.setCurrentMenu(item._id)}
           >
             <Link to="/dashboard/view-items" state={{ id: item._id }}>
               <img
