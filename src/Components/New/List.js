@@ -83,14 +83,6 @@ const List = (props) => {
           </div>
         ))
       )}
-
-      <DisplayItem text={props.text} />
-      <DisplayItem text={props.text} />
-      <DisplayItem text={props.text} />
-      <DisplayItem text={props.text} />
-      <DisplayItem text={props.text} />
-      <DisplayItem text={props.text} />
-      <DisplayItem text={props.text} />
     </>
   );
 };

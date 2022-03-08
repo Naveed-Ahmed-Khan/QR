@@ -138,7 +138,7 @@ const CreateSurvey = () => {
           Create Survey
         </Button>
       </div>
-      <p style={{ textAlign: "center", color: "#2A48A0", height: "20px" }}>
+      <p style={{ textAlign: "center", color: "#2A48A0", height: "15px" }}>
         {file1}
       </p>
     </div>
