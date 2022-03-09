@@ -61,7 +61,7 @@ const List2 = (props) => {
               </p>
 
               <Link
-                to="/dashboard/edit-items"
+                to="/dashboard/edit-survey-items"
                 state={{ id: item._id }}
                 className={classes.anchor}
                 style={{ marginRight: "10px" }}

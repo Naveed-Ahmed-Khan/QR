@@ -37,7 +37,7 @@ const DisplayItemList = (props) => {
       <div className={`${classes.gridItem} ${classes.item3}`}>
         <h5 style={{ paddingLeft: "20px" }}> All surveys</h5>
         <div className={classes.flexRow}>
-          <List2 lists={surveys} />
+          <List2 lists={surveys} setcurrentSurvey={setsurveys} />
         </div>
       </div>
     </>

@@ -353,7 +353,7 @@ const EditMenu = () => {
                   style={{ width: "48%" }}
                   id="button"
                   onClick={() => {
-                    navigate("/dashboard");
+                    navigate("/dashboard/menu");
                   }}
                 >
                   Cancel
