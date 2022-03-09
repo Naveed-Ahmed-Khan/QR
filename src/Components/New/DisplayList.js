@@ -38,7 +38,7 @@ const DisplayItemList = (props) => {
       <div className={`${classes.gridItem} ${classes.item3}`}>
         <h5 style={{ paddingLeft: "20px" }}> All Menus</h5>
         <div className={classes.flexRow}>
-          <List lists={menus} />
+          <List lists={menus} setCurrentMenu={setMenus} />
         </div>
       </div>
     </>
