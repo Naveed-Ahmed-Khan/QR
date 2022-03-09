@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./MenuPreview2.css";
+import classes from "./MenuPreview2.module.css";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router";
 import Button from "@material-ui/core/Button";
@@ -25,10 +25,10 @@ const MenuPreview2 = (props) => {
     //console.log("filteres:", filtered)
   };
   return (
-    <div className="gridItem">
+    <div className={classes.gridItem}>
       <h5>Menu Preview</h5>
-      <div className="menuContainer">
-        <header className="menuHeader">
+      <div className={classes.menuContainer}>
+        <header className={classes.menuHeader}>
           <h5>Restaurant Name </h5>
           <p>{props.resturantName}</p>
           <h5>Address </h5>
@@ -43,16 +43,16 @@ const MenuPreview2 = (props) => {
             {props.contact}
           </p>
         </header>
-        <div className="itemList">
+        <div className={classes.itemList}>
           {/* <p style={{color:'#098F68', fontSize:14}}>{msg}</p> */}
-          <div className="MenuP4">
+          <div className={classes.MenuP4}>
             <h5>Item Price</h5>
             <h5>Price</h5>
           </div>
-          <div className="MenuP3">
+          <div className={classes.MenuP3}>
             {props.items.map((item, key) => (
               <>
-                <div key={key} className="MenuItems">
+                <div key={key} className={classes.MenuItems}>
                   <a className="deleteBtn" onClick={() => deleteItem(item)}>
                     {props.delete == true ? "Delete" : ""}
                   </a>
@@ -64,7 +64,34 @@ const MenuPreview2 = (props) => {
           </div>
         </div>
       </div>
-      <div></div>
+      <div>
+        <div
+          style={{
+            gridColumn: "span 2",
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
+          <Button
+            variant="contained"
+            style={{ width: "48%" }}
+            id="button"
+            onClick={() => props.updateMenu()}
+          >
+            Update Item
+          </Button>
+          <Button
+            variant="contained"
+            style={{ width: "48%" }}
+            id="button"
+            onClick={() => {
+              navigate("/dashboard");
+            }}
+          >
+            Cancel
+          </Button>
+        </div>
+      </div>
     </div>
   );
 };

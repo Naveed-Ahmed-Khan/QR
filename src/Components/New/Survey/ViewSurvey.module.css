@@ -1,19 +1,23 @@
 .gridItem {
+  display: flex;
+  flex-direction: column;
   background-color: white;
   border-radius: 10px;
   box-shadow: 2px 2px 8px 10px #fbfbfb;
   padding: 10px;
 }
 .sub1 {
+  flex: 1 1 auto;
   grid-column: span 2;
   padding: 5px 25px 35px 10px;
   border: 2px solid #1cb56d;
-  height: 240px;
   display: grid;
   grid-template-columns: 20% 60% 20%;
   grid-template-rows: 10% 30% 30% 30%;
   gap: 8px;
   border-radius: 10px;
+  /* overflow-x: hidden;
+  overflow-y: auto; */
 }
 .item1 {
   color: #1cb56d;

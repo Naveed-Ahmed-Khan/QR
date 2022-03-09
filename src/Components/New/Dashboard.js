@@ -71,7 +71,7 @@ const Dashboard = () => {
                 src="../assets/images/brand/fastFood.png"
                 alt="Food-item"
               />
-              <span style={{ marginRight: "80px" }}> Menu</span>
+              <span style={{ marginRight: "80px" }}>Menu</span>
             </Link>
             <Link
               className={
@@ -100,7 +100,7 @@ const Dashboard = () => {
             >
               <img
                 className={classes.tabImage}
-                src="../assets/images/brand/survey.png"
+                src="../assets/images/brand/qr-code.png"
                 alt="QR-code"
               />
               <span>QR Codes</span>
@@ -116,7 +116,7 @@ const Dashboard = () => {
               <img
                 src="../assets/images/brand/logout.png"
                 alt=""
-                style={{ height: "40px", marginBottom: "5px" }}
+                className={classes.tabImage}
               />
               Logout
             </Link>

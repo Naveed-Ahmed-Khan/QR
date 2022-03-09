@@ -79,7 +79,7 @@ const CreateMenuList = () => {
           >
             <img
               className={classes2.icon}
-              src="../assets/images/brand/building.png"
+              src="../assets/images/brand/town.png"
               alt=""
             />
 
@@ -125,7 +125,7 @@ const CreateMenuList = () => {
           >
             <img
               className={classes2.icon}
-              src="../assets/images/brand/bars.png"
+              src="../assets/images/brand/menu.png"
               alt=""
             />
 

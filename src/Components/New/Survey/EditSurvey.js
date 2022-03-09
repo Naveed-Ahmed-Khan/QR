@@ -34,13 +34,13 @@ const EditSurvey = () => {
           />
           <Input
             className={classes.sub1}
-            imageSrc="../assets/images/brand/building.png"
+            imageSrc="../assets/images/brand/town.png"
             text="City"
             span="2"
           />
           <Input
             className={classes.sub1}
-            imageSrc="../assets/images/brand/bars.png"
+            imageSrc="../assets/images/brand/description.png"
             text="Description"
             span="2"
           />

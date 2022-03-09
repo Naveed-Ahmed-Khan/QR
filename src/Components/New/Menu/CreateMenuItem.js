@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
 import { Button } from "@material-ui/core";
 import classes from "./CreateMenuItem.module.css";
 import classes2 from "./input1.module.css";
 import MenuPreview from "./MenuPreview";
-import { useLocation } from 'react-router-dom';
-import { createMenu } from '../../../APIs/api';
+import { useLocation } from "react-router-dom";
+import { createMenu } from "../../../APIs/api";
 
 const CreateMenuItem = () => {
   const location = useLocation();
@@ -21,7 +21,7 @@ const CreateMenuItem = () => {
   const [backgroundImg, setbackImg] = useState("");
 
   const getBase64 = (file) => {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       let baseURL = "";
       // Make new FileReader
       let reader = new FileReader();
@@ -39,41 +39,35 @@ const CreateMenuItem = () => {
   };
 
   const handleheaderImgChange = (e) => {
-
     var file = e.target.files[0];
 
-    setFile1(file.name)
+    setFile1(file.name);
     getBase64(file)
-      .then(result => {
+      .then((result) => {
         file["base64"] = result;
-        setheaderImg(result)
+        setheaderImg(result);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
-
-
   };
 
   const handleBackImgChange = (e) => {
     console.log("Fileeee: ", e.target.files[0]);
 
-    
     var file = e.target.files[0];
-    setFile2(file.name)
+    setFile2(file.name);
     getBase64(file)
-      .then(result => {
+      .then((result) => {
         file["base64"] = result;
-        setbackImg(result)
+        setbackImg(result);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   };
 
-
   const addItem = async () => {
-
     var itemObj = {};
     const objID = Math.floor(Math.random() * 10000000000);
     itemObj.name = name;
@@ -83,12 +77,11 @@ const CreateMenuItem = () => {
 
     items.push(itemObj);
 
-    console.log("item added!", items)
+    console.log("item added!", items);
     setName("");
     setPrice("");
     setdessc("");
-
-  }
+  };
 
   return (
     <>
@@ -96,20 +89,31 @@ const CreateMenuItem = () => {
         <h5>Create Menu</h5>
         <div className={classes.sub1}>
           <div className={` ${classes.anchor1} ${classes.grid1}`}>
-
             <div className={classes2.container}>
               <h6 style={{ fontSize: 13 }}>Item Name</h6>
-              <input className={classes2.input} placeholder="Enter Here" value={name} onChange={(e) => setName(e.target.value)} required />
+              <input
+                className={classes2.input}
+                placeholder="Enter Here"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
             </div>
 
             <div className={classes2.container}>
               <h6 style={{ fontSize: 13 }}>Item Price</h6>
-              <input className={classes2.input} placeholder="Enter Here" value={price} onChange={(e) => setPrice(e.target.value)} required />
+              <input
+                className={classes2.input}
+                placeholder="Enter Here"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+                required
+              />
             </div>
 
             <div
               style={{
-                width: "95%",
+                width: "100%",
                 border: "2px solid #1cb56d ",
                 borderRadius: "12px",
                 padding: "5px 20px",
@@ -141,7 +145,7 @@ const CreateMenuItem = () => {
             />
             Upload Header Image
           </label>
-          
+
           <label
             className={` ${classes.anchor2} ${classes.grid3}`}
             style={{ color: "#1cb56d" }}
@@ -156,27 +160,30 @@ const CreateMenuItem = () => {
               onChange={(e) => handleBackImgChange(e)}
             />
             Upload Background Image
-            
           </label>
-          <p style={{textAlign:'center', color:'#2A48A0'}}>{file1}</p>
-          <p style={{textAlign:'center', color:'#2A48A0'}}>{file2}</p>
+          <p style={{ textAlign: "center", color: "#2A48A0" }}>{file1}</p>
+          <p style={{ textAlign: "center", color: "#2A48A0" }}>{file2}</p>
           <div style={{ gridColumn: "span 2" }}>
-            <Button variant="contained" fullWidth id="button" onClick={() => addItem()}>
+            <Button
+              variant="contained"
+              fullWidth
+              id="button"
+              onClick={() => addItem()}
+            >
               Add Item
             </Button>
           </div>
         </div>
       </div>
-      <MenuPreview 
-      resturantName={location.state.data.resturantName}
-      address={location.state.data.address}
-      city= {location.state.data.city}
-      contact={ location.state.data.contact}
-      name={location.state.data.name}
-      items={items}
-      headerImg={headerImg}
-      backgroundImg={backgroundImg}
-      
+      <MenuPreview
+        resturantName={location.state.data.resturantName}
+        address={location.state.data.address}
+        city={location.state.data.city}
+        contact={location.state.data.contact}
+        name={location.state.data.name}
+        items={items}
+        headerImg={headerImg}
+        backgroundImg={backgroundImg}
       />
     </>
   );

@@ -42,7 +42,6 @@
 }
 
 .MenuP3 {
- 
   height: 30px;
   align-items: center;
   background-color: white;
@@ -56,7 +55,7 @@
   border-radius: 6px;
 }
 
-.MenuItems{
+.MenuItems {
   display: flex;
   margin: 5px;
 }

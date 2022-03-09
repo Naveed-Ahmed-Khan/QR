@@ -6,7 +6,10 @@ const Home = () => {
     <div>
       {/*Sliders Section*/}
       <section>
-        <div className="banner-1 cover-image sptb-3 sptb-tab bg-background2 ">
+        <div
+          /* style={{ minHeight: "100vh" }} */
+          className="banner-1 cover-image sptb-3 sptb-tab bg-background2 "
+        >
           <div className="header-text mb-0">
             <div className="container">
               <div className="text-white mb-7">

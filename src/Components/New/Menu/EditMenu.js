@@ -200,7 +200,7 @@ const EditMenu = () => {
                 val={address}
               />
               <Input
-                imageSrc="../assets/images/brand/building.png"
+                imageSrc="../assets/images/brand/town.png"
                 text="City"
                 span="1"
                 setFun={setCity}
@@ -215,26 +215,30 @@ const EditMenu = () => {
               />
 
               <Input
-                imageSrc="../assets/images/brand/bars.png"
+                imageSrc="../assets/images/brand/menu.png"
                 text="Menu Name"
                 span="2"
                 setFun={setName}
                 val={name}
               />
-              <p
+              <div
                 style={{
-                  margin: "0 0 5px 0px",
-                  height: "fit-content",
+                  display: "flex",
+                  justifyContent: "space-between",
                   gridColumn: "span 2",
-                  color: "#848487",
-                  marginLeft: 3,
+                  margin: "0",
                 }}
               >
-                Add New Items
-              </p>
-              <div style={{ gridColumn: "span 2" }}>
-                {" "}
-                <p style={{ color: "red", marginLeft: 3 }}>{error}</p>
+                <p
+                  style={{
+                    margin: "0",
+                    color: "#848487",
+                  }}
+                >
+                  Add New Items
+                </p>
+
+                <p style={{ color: "red", margin: "0" }}>{error}</p>
               </div>
 
               <Input
@@ -253,7 +257,6 @@ const EditMenu = () => {
               />
               <div
                 style={{
-                  width: "93%",
                   border: "2px solid #1cb56d ",
                   borderRadius: "12px",
                   padding: "5px 20px",
@@ -261,9 +264,12 @@ const EditMenu = () => {
                   gridColumn: "span 2",
                 }}
               >
-                <h6>Description</h6>
+                <h6 style={{ color: "#1cb56d" }}>Description</h6>
                 <textarea
-                  style={{ width: "100%", height: "50px", border: "none" }}
+                  style={{
+                    width: "100%",
+                    border: "none",
+                  }}
                   placeholder="Enter Here"
                   value={description}
                   onChange={(e) => setdessc(e.target.value)}
@@ -327,7 +333,7 @@ const EditMenu = () => {
 
               <p style={{ textAlign: "center", color: "#2A48A0" }}>{file1}</p>
               <p style={{ textAlign: "center", color: "#2A48A0" }}>{file2}</p>
-              <div
+              {/* <div
                 style={{
                   gridColumn: "span 2",
                   display: "flex",
@@ -352,7 +358,7 @@ const EditMenu = () => {
                 >
                   Cancel
                 </Button>
-              </div>
+              </div> */}
             </div>
           </div>
           <MenuPreview2
@@ -366,6 +372,7 @@ const EditMenu = () => {
             headerImg={headerImg}
             backgroundImg={backgroundImg}
             delete={true}
+            updateMenu={updateMenu}
           />
         </>
       )}

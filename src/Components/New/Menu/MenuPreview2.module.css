@@ -4,11 +4,16 @@
   box-shadow: 2px 2px 8px 10px #fbfbfb;
   padding: 15px 20px;
   grid-row: span 2;
+  display: flex;
+  flex-direction: column;
 }
 .gridItem h5 {
   margin: 0 0 10px 0;
 }
 .menuContainer {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
   border: 2px solid #1cb56d;
   border-radius: 12px;
   padding: 15px;
@@ -28,9 +33,10 @@
 }
 
 .itemList {
+  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  gap: 4px;
   background-color: white;
   margin: 15px 0 0 0;
   padding: 15px 0;
@@ -43,12 +49,12 @@
 }
 
 .MenuP3 {
- 
-  height: 30px;
+  flex: 1 1 auto;
   align-items: center;
   background-color: white;
   border-radius: 6px;
   justify-content: space-between;
+  overflow-y: auto;
 }
 .MenuP4 {
   display: flex;
@@ -61,7 +67,7 @@
   margin-right: 20px;
 }
 
-.MenuItems{
+.MenuItems {
   display: flex;
   margin: 5px;
 }
@@ -75,8 +81,7 @@
 .itemList::-webkit-scrollbar {
   display: none;
 }
-.deleteBtn{
+.deleteBtn {
   color: rgb(238, 38, 38);
   cursor: pointer;
- 
 }

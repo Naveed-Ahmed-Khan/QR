@@ -47,6 +47,7 @@ const ViewSurvey = () => {
               alt="img"
               style={{
                 width: "70px",
+                marginLeft: "10px",
                 objectFit: "contain",
               }}
             />

@@ -99,7 +99,7 @@ const CreateSurvey = () => {
         />
         <Input
           className={classes.sub1}
-          imageSrc="../assets/images/brand/building.png"
+          imageSrc="../assets/images/brand/town.png"
           text="City"
           span="2"
           setFun={setCity}
@@ -107,7 +107,7 @@ const CreateSurvey = () => {
         />
         <Input
           className={classes.sub1}
-          imageSrc="../assets/images/brand/bars.png"
+          imageSrc="../assets/images/brand/description.png"
           text="Description"
           span="2"
           setFun={setDesc}
@@ -138,7 +138,15 @@ const CreateSurvey = () => {
           Create Survey
         </Button>
       </div>
-      <p style={{ textAlign: "center", color: "#2A48A0", height: "15px" }}>
+      <p
+        style={{
+          margin: "0",
+          padding: "0",
+          textAlign: "center",
+          maxWidth: "50%",
+          color: "#2A48A0",
+        }}
+      >
         {file1}
       </p>
     </div>
