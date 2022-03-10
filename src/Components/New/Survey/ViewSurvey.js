@@ -3,7 +3,7 @@ import classes from "./ViewSurvey.module.css";
 import Cookies from "js-cookie";
 import { fetchUserSurveys } from "../../../APIs/api";
 
-const ViewSurvey = () => {
+const ViewSurvey = (props) => {
   const [surveys, setsurveys] = useState([]);
   const [error, seterror] = useState("");
 
@@ -30,7 +30,11 @@ const ViewSurvey = () => {
       });
   }, []);
   return (
-    <div className={classes.gridItem}>
+    <div
+      className={`${classes.gridItem} ${
+        props.gridSpan === 2 && classes.gridSpan
+      } `}
+    >
       <h6 style={{ color: "#1cb56d", marginBottom: "10px" }}>View Survey</h6>
       <div className={classes.sub1}>
         <div className={classes.item1} style={{ marginLeft: "15px" }}>
@@ -46,9 +50,10 @@ const ViewSurvey = () => {
               src={item.image}
               alt="img"
               style={{
-                width: "70px",
+                height: "42px",
                 marginLeft: "10px",
                 objectFit: "contain",
+                borderRadius: "4px",
               }}
             />
             <p style={{ width: "220px", marginTop: "18px" }}>

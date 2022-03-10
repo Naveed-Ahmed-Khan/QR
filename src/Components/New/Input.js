@@ -10,9 +10,15 @@ const Input = (props) => {
       {props.imageSrc.trim().length !== 0 && (
         <img className={classes.icon} src={props.imageSrc} alt="" />
       )}
+      {props.myImg !== undefined && props.myImg}
       <div style={{ paddingLeft: "15px", width: "100%" }}>
         <p className={classes.label}>{props.text}</p>
-        <input className={classes.input} placeholder="Enter Here" value={props.val} onChange={(e)=>props.setFun(e.target.value)}/>
+        <input
+          className={classes.input}
+          placeholder="Enter Here"
+          value={props.val}
+          onChange={(e) => props.setFun(e.target.value)}
+        />
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ import classes2 from "./input1.module.css";
 import MenuPreview from "./MenuPreview";
 import { useLocation } from "react-router-dom";
 import { createMenu } from "../../../APIs/api";
+import InsertPhotoIcon from "@material-ui/icons/InsertPhoto";
 
 const CreateMenuItem = () => {
   const location = useLocation();
@@ -143,7 +144,17 @@ const CreateMenuItem = () => {
               style={{ display: "none" }}
               onChange={(e) => handleheaderImgChange(e)}
             />
-            Upload Header Image
+            <div>
+              <InsertPhotoIcon
+                style={{
+                  color: "green[500]",
+                  fontSize: "xx-large",
+                  display: "block",
+                  margin: "0 auto",
+                }}
+              />
+              <div>Upload Header Image</div>
+            </div>
           </label>
 
           <label
@@ -159,7 +170,17 @@ const CreateMenuItem = () => {
               style={{ display: "none" }}
               onChange={(e) => handleBackImgChange(e)}
             />
-            Upload Background Image
+            <div>
+              <InsertPhotoIcon
+                style={{
+                  color: "green[500]",
+                  fontSize: "xx-large",
+                  display: "block",
+                  margin: "0 auto",
+                }}
+              />
+              <div>Upload Background Image</div>
+            </div>
           </label>
           <p style={{ textAlign: "center", color: "#2A48A0" }}>{file1}</p>
           <p style={{ textAlign: "center", color: "#2A48A0" }}>{file2}</p>

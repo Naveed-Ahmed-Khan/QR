@@ -71,26 +71,7 @@ const MenuPreview2 = (props) => {
             display: "flex",
             justifyContent: "space-between",
           }}
-        >
-          <Button
-            variant="contained"
-            style={{ width: "48%" }}
-            id="button"
-            onClick={() => props.updateMenu()}
-          >
-            Update Item
-          </Button>
-          <Button
-            variant="contained"
-            style={{ width: "48%" }}
-            id="button"
-            onClick={() => {
-              navigate("/dashboard");
-            }}
-          >
-            Cancel
-          </Button>
-        </div>
+        ></div>
       </div>
     </div>
   );

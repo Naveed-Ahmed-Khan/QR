@@ -3,6 +3,10 @@ import classes from "./Dashboard.module.css";
 import { Link, Outlet } from "react-router-dom";
 import Cookies from "js-cookie";
 import { logedinuser } from "../../APIs/api";
+import RestaurantMenuIcon from "@mui/icons-material/RestaurantMenu";
+import FilterListIcon from "@mui/icons-material/FilterList";
+import QrCodeIcon from "@mui/icons-material/QrCode";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState("MENU");
@@ -66,11 +70,11 @@ const Dashboard = () => {
               to="/dashboard/menu"
               onClick={menuTabHandler}
             >
-              <img
+              <RestaurantMenuIcon
                 className={classes.tabImage}
-                src="../assets/images/brand/fastFood.png"
-                alt="Food-item"
+                sx={{ color: `${activeTab === "MENU" ? "white" : "#1cb56d"} ` }}
               />
+
               <span style={{ marginRight: "80px" }}>Menu</span>
             </Link>
             <Link
@@ -82,10 +86,11 @@ const Dashboard = () => {
               to="/dashboard/survey"
               onClick={surveyTabHandler}
             >
-              <img
+              <FilterListIcon
                 className={classes.tabImage}
-                src="../assets/images/brand/survey.png"
-                alt="Food-item"
+                sx={{
+                  color: `${activeTab === "SURVEY" ? "white" : "#1cb56d"} `,
+                }}
               />
               <span>Survey</span>
             </Link>
@@ -98,10 +103,9 @@ const Dashboard = () => {
               to="/dashboard/qr-codes"
               onClick={qrTabHandler}
             >
-              <img
+              <QrCodeIcon
                 className={classes.tabImage}
-                src="../assets/images/brand/qr-code.png"
-                alt="QR-code"
+                sx={{ color: `${activeTab === "QR" ? "white" : "#1cb56d"} ` }}
               />
               <span>QR Codes</span>
             </Link>
@@ -113,10 +117,9 @@ const Dashboard = () => {
                 Cookies.remove("mail");
               }}
             >
-              <img
-                src="../assets/images/brand/logout.png"
-                alt=""
+              <LogoutIcon
                 className={classes.tabImage}
+                sx={{ color: `#1cb56d ` }}
               />
               Logout
             </Link>

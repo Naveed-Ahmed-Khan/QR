@@ -6,6 +6,11 @@ import classes from "./EditMenu.module.css";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router";
 import MenuPreview2 from "./MenuPreview2";
+import RestaurantIcon from "@mui/icons-material/Restaurant";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import LocationCityIcon from "@mui/icons-material/LocationCity";
+import PhoneIcon from "@mui/icons-material/Phone";
+import ClearAllIcon from "@mui/icons-material/ClearAll";
 import { fetchMenu, editMenu } from "../../../APIs/api";
 
 const EditMenu = () => {
@@ -186,28 +191,56 @@ const EditMenu = () => {
             </p>
             <div className={classes.item4}>
               <Input
-                imageSrc="../assets/images/brand/fork.png"
+                imageSrc=""
+                myImg={
+                  <RestaurantIcon
+                    sx={{
+                      color: "#1cb56d",
+                    }}
+                  />
+                }
                 text="Restaurant Name"
                 span="2"
                 setFun={setResturant}
                 val={resturantName}
               />
               <Input
-                imageSrc="../assets/images/brand/pin.png"
+                imageSrc=""
+                myImg={
+                  <LocationOnIcon
+                    sx={{
+                      color: "#1cb56d",
+                    }}
+                  />
+                }
                 text="Address"
                 span="2"
                 setFun={setAddress}
                 val={address}
               />
               <Input
-                imageSrc="../assets/images/brand/town.png"
+                imageSrc=""
+                myImg={
+                  <LocationCityIcon
+                    sx={{
+                      color: "#1cb56d",
+                    }}
+                  />
+                }
                 text="City"
                 span="1"
                 setFun={setCity}
                 val={city}
               />
               <Input
-                imageSrc="../assets/images/brand/telephone.png"
+                imageSrc=""
+                myImg={
+                  <PhoneIcon
+                    sx={{
+                      color: "#1cb56d",
+                    }}
+                  />
+                }
                 text="Phone Number"
                 span="1"
                 setFun={setContact}
@@ -215,7 +248,14 @@ const EditMenu = () => {
               />
 
               <Input
-                imageSrc="../assets/images/brand/menu.png"
+                imageSrc=""
+                myImg={
+                  <ClearAllIcon
+                    sx={{
+                      color: "#1cb56d",
+                    }}
+                  />
+                }
                 text="Menu Name"
                 span="2"
                 setFun={setName}
@@ -259,9 +299,10 @@ const EditMenu = () => {
                 style={{
                   border: "2px solid #1cb56d ",
                   borderRadius: "12px",
-                  padding: "5px 20px",
-                  marginBottom: "10px",
+                  padding: "10px 10px 0px 30px",
+
                   gridColumn: "span 2",
+                  margin: "0",
                 }}
               >
                 <h6 style={{ color: "#1cb56d" }}>Description</h6>
@@ -269,6 +310,7 @@ const EditMenu = () => {
                   style={{
                     width: "100%",
                     border: "none",
+                    maxHeight: "25px",
                   }}
                   placeholder="Enter Here"
                   value={description}
@@ -283,23 +325,23 @@ const EditMenu = () => {
                   fullWidth
                   id="button"
                   onClick={() => addItem()}
-                  style={{ marginBottom: 10 }}
+                  style={{ margin: 0 }}
                 >
                   Add Item
                 </Button>
               </div>
               <label
-                className={`${classes.anchor2} ${classes.grid2}`}
                 style={{
+                  display: "grid",
+                  placeItems: "center",
                   color: "#1cb56d",
                   border: "2px dashed #1cb56d",
                   borderRadius: "4px",
-                  textAlign: "center",
-                  padding: "4px 6px",
+                  margin: "0px",
+                  padding: "4px",
                 }}
               >
                 <input
-                  className={`${classes.anchor1} ${classes.grid1}`}
                   type="file"
                   label="Image"
                   name="myFile"
@@ -310,17 +352,17 @@ const EditMenu = () => {
                 Upload Header Image
               </label>
               <label
-                className={` ${classes.anchor2} ${classes.grid3}`}
                 style={{
+                  display: "grid",
+                  placeItems: "center",
                   color: "#1cb56d",
                   border: "2px dashed #1cb56d",
                   borderRadius: "4px",
-                  textAlign: "center",
-                  padding: "4px 6px",
+                  margin: "0px",
+                  padding: "4px",
                 }}
               >
                 <input
-                  className={` ${classes.anchor1} ${classes.grid1}`}
                   type="file"
                   label="Image"
                   name="myFile"
@@ -331,26 +373,46 @@ const EditMenu = () => {
                 Upload Background Image
               </label>
 
-              <p style={{ textAlign: "center", color: "#2A48A0" }}>{file1}</p>
-              <p style={{ textAlign: "center", color: "#2A48A0" }}>{file2}</p>
-              {/* <div
+              <div
                 style={{
+                  textAlign: "center",
+                  color: "#2A48A0",
+                  height: "16px",
+                }}
+              >
+                {file1}
+              </div>
+              <div
+                style={{
+                  textAlign: "center",
+                  color: "#2A48A0",
+                  height: "16px",
+                }}
+              >
+                {file2}
+              </div>
+              <div
+                style={{
+                  margin: "0px",
                   gridColumn: "span 2",
                   display: "flex",
                   justifyContent: "space-between",
+                  gap: "8px",
                 }}
               >
                 <Button
+                  fullWidth
                   variant="contained"
-                  style={{ width: "48%" }}
+                  style={{ margin: 0 }}
                   id="button"
                   onClick={() => updateMenu()}
                 >
                   Update Item
                 </Button>
                 <Button
+                  fullWidth
                   variant="contained"
-                  style={{ width: "48%" }}
+                  style={{ margin: 0 }}
                   id="button"
                   onClick={() => {
                     navigate("/dashboard/menu");
@@ -358,7 +420,7 @@ const EditMenu = () => {
                 >
                   Cancel
                 </Button>
-              </div> */}
+              </div>
             </div>
           </div>
           <MenuPreview2
@@ -372,7 +434,6 @@ const EditMenu = () => {
             headerImg={headerImg}
             backgroundImg={backgroundImg}
             delete={true}
-            updateMenu={updateMenu}
           />
         </>
       )}

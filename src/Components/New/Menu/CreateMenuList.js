@@ -3,6 +3,12 @@ import classes from "./CreateMenuList.module.css";
 import Input from "../Input";
 import AddMenu from "./AddMenu";
 import classes2 from "./input.module.css";
+import RestaurantIcon from "@mui/icons-material/Restaurant";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import LocationCityIcon from "@mui/icons-material/LocationCity";
+import PhoneIcon from "@mui/icons-material/Phone";
+import ClearAllIcon from "@mui/icons-material/ClearAll";
+import { green } from "@material-ui/core/colors";
 
 const CreateMenuList = () => {
   const [resturantName, setResturant] = useState("");
@@ -32,10 +38,10 @@ const CreateMenuList = () => {
             className={`${classes2.createMenu}`}
             style={{ gridColumn: `span ${span}` }}
           >
-            <img
-              className={classes2.icon}
-              src="../assets/images/brand/fork.png"
-              alt=""
+            <RestaurantIcon
+              sx={{
+                color: "#1cb56d",
+              }}
             />
 
             <div className={classes2.text}>
@@ -54,10 +60,10 @@ const CreateMenuList = () => {
             className={`${classes2.createMenu}`}
             style={{ gridColumn: `span ${span}` }}
           >
-            <img
-              className={classes2.icon}
-              src="../assets/images/brand/pin.png"
-              alt=""
+            <LocationOnIcon
+              sx={{
+                color: "#1cb56d",
+              }}
             />
 
             <div style={{ paddingLeft: "15px", width: "100%" }}>
@@ -77,10 +83,10 @@ const CreateMenuList = () => {
             className={`${classes2.createMenu}`}
             style={{ gridColumn: `span ${span2}` }}
           >
-            <img
-              className={classes2.icon}
-              src="../assets/images/brand/town.png"
-              alt=""
+            <LocationCityIcon
+              sx={{
+                color: "#1cb56d",
+              }}
             />
 
             <div style={{ paddingLeft: "15px", width: "100%" }}>
@@ -100,10 +106,10 @@ const CreateMenuList = () => {
             className={`${classes2.createMenu}`}
             style={{ gridColumn: `span ${span2}` }}
           >
-            <img
-              className={classes2.icon}
-              src="../assets/images/brand/telephone.png"
-              alt=""
+            <PhoneIcon
+              sx={{
+                color: "#1cb56d",
+              }}
             />
 
             <div style={{ paddingLeft: "15px", width: "100%" }}>
@@ -123,10 +129,10 @@ const CreateMenuList = () => {
             className={`${classes2.createMenu}`}
             style={{ gridColumn: `span ${span}` }}
           >
-            <img
-              className={classes2.icon}
-              src="../assets/images/brand/menu.png"
-              alt=""
+            <ClearAllIcon
+              sx={{
+                color: "#1cb56d",
+              }}
             />
 
             <div style={{ paddingLeft: "15px", width: "100%" }}>

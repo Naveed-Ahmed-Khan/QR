@@ -5,6 +5,11 @@ import Cookies from "js-cookie";
 import { useNavigate } from "react-router";
 import { Button } from "@material-ui/core";
 import { createSurvey } from "../../../APIs/api";
+import FilterListIcon from "@mui/icons-material/FilterList";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import LocationCityIcon from "@mui/icons-material/LocationCity";
+import ClearAllIcon from "@mui/icons-material/ClearAll";
+import { green, pink } from "@material-ui/core/colors";
 
 const CreateSurvey = () => {
   const navigate = useNavigate();
@@ -83,7 +88,14 @@ const CreateSurvey = () => {
       <div className={classes.item4}>
         <Input
           className={classes.sub1}
-          imageSrc="../assets/images/brand/survey.png"
+          myImg={
+            <FilterListIcon
+              sx={{
+                color: "#1cb56d",
+              }}
+            />
+          }
+          imageSrc=""
           text="Survey Name"
           span="2"
           setFun={setName}
@@ -91,15 +103,30 @@ const CreateSurvey = () => {
         />
         <Input
           className={classes.sub1}
-          imageSrc="../assets/images/brand/pin.png"
+          imageSrc=""
+          myImg={
+            <LocationOnIcon
+              sx={{
+                color: "#1cb56d",
+              }}
+            />
+          }
           text="Address"
           span="2"
           setFun={setAddress}
           val={address}
         />
+
         <Input
           className={classes.sub1}
-          imageSrc="../assets/images/brand/town.png"
+          imageSrc=""
+          myImg={
+            <LocationCityIcon
+              sx={{
+                color: "#1cb56d",
+              }}
+            />
+          }
           text="City"
           span="2"
           setFun={setCity}
@@ -107,7 +134,14 @@ const CreateSurvey = () => {
         />
         <Input
           className={classes.sub1}
-          imageSrc="../assets/images/brand/description.png"
+          imageSrc=""
+          myImg={
+            <ClearAllIcon
+              sx={{
+                color: "#1cb56d",
+              }}
+            />
+          }
           text="Description"
           span="2"
           setFun={setDesc}

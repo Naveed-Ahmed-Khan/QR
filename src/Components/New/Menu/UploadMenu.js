@@ -1,15 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./UploadMenu.module.css";
 import InsertPhotoIcon from "@material-ui/icons/InsertPhoto";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import MenuPreview from "./MenuPreview";
+import { useLocation, useNavigate } from "react-router";
 
 const UploadMenu = () => {
-  /* const handleFileUpload = async (e) => {
-    const file = e.target.files[0];
-    const base64 = await convertToBase64(file);
-    setPostImage({ ...postImage, myFile: base64 });
-  }; */
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [menu, setmenu] = useState({});
+  const [error, seterror] = useState("");
+  const [resturantName, setResturant] = useState("");
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [name, setName] = useState("");
+  const [itemName, setItemName] = useState("");
+  const [contact, setContact] = useState("");
+  const [price, setPrice] = useState("");
+  const [file1, setFile1] = useState("");
+  const [file2, setFile2] = useState("");
+  const [items, setItems] = useState([]);
+  const [check, setcheck] = useState(false);
+  const [description, setdessc] = useState("");
+  const [headerImg, setheaderImg] = useState("");
+  const [backgroundImg, setbackImg] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <>
@@ -92,7 +107,16 @@ const UploadMenu = () => {
           </label>
         </div>
       </div>
-      <MenuPreview />
+      {/* <MenuPreview
+        resturantName={location.state.data.resturantName}
+        address={location.state.data.address}
+        city={location.state.data.city}
+        contact={location.state.data.contact}
+        name={location.state.data.name}
+        items={items}
+        headerImg={headerImg}
+        backgroundImg={backgroundImg}
+      /> */}
     </>
   );
 };

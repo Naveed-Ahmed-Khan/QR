@@ -92,7 +92,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 .side3 {
   position: relative;
@@ -152,20 +152,16 @@
 
 .sideItem:hover {
   background-color: lightgreen;
-  color: black;
+  color: inherit;
 }
-/* .side-item:active {
-  background-color: #1cb56d;
-  color: black;
-} */
 
 .sideItem .tabImage {
-  margin: 0 30px 0px 10px;
+  margin: 0 16px 0px 10px;
   object-fit: contain;
   height: 80%;
   float: left;
 }
 .activate {
   background-color: #1cb56d;
-  color: black;
+  color: white;
 }

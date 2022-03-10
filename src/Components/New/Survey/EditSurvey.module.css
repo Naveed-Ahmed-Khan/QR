@@ -1,15 +1,20 @@
 .gridItem {
+  display: flex;
+  flex-direction: column;
+
   background-color: white;
   border-radius: 10px;
   box-shadow: 2px 2px 8px 10px #fbfbfb;
   grid-row: span 2;
 }
 .item4 {
+  flex: 0.5 1 auto;
   display: grid;
-  padding: 0 30px 0 20px;
+  padding: 10px 36px 20px 20px;
   grid-template-columns: 50% 50%;
-  grid-template-rows: repeat(4, 50px);
-  gap: 5%;
+  grid-auto-rows: auto;
+  /* grid-template-rows: repeat(4, 50px); */
+  gap: 4%;
 }
 .createMenu {
   border: 2px solid #1cb56d;
