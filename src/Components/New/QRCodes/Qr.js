@@ -5,10 +5,10 @@ import { fetchUserMenus, fetchUserSurveys } from "../../../APIs/api";
 
 const Qr = () => {
   const [menus, setMenus] = useState([]);
-  const [surveys, setSurveys] = useState();
+  const [surveys, setSurveys] = useState([]);
   const [error, seterror] = useState("");
 
-  const fetchMenus = async () => {
+  useEffect(async () => {
     await fetchUserMenus({
       uid: Cookies.get("id"),
     })
@@ -29,18 +29,19 @@ const Qr = () => {
       .catch(function (error) {
         console.log("error:", error.message);
       });
-  };
-  const fetchSurveys = async () => {
+  }, []);
+
+  useEffect(async () => {
     await fetchUserSurveys({
-      sid: Cookies.get("id"),
+      uid: Cookies.get("id"),
     })
       .then(function (response) {
-        //   console.log(response);
+        console.log(response);
         if (response.data.message === true) {
-          console.log("res surveys:", response.data);
+          console.log("res survey:", response.data);
           try {
             seterror("");
-            setSurveys(response.data.survey);
+            setSurveys(response.data.surveys);
           } catch (e) {
             return null;
           }
@@ -51,32 +52,32 @@ const Qr = () => {
       .catch(function (error) {
         console.log("error:", error.message);
       });
-  };
-
-  useEffect(() => {
-    fetchMenus();
-    fetchSurveys();
   }, []);
+
   return (
-    <div className={`${classes.gridItem} ${classes.item3}`}>
-      <div className={classes.flexBox1}>
+    <div className={`${classes.item3}`}>
+      <div className={classes.flexBox}>
         <h4 style={{ paddingLeft: "20px" }}> All Menus</h4>
         <div className={classes.flexRow}>
           {menus.map((item, key) => (
             <div className={classes.imgContainer}>
               <img className={classes.image} src={item.qrcode} alt="" />
-              <h3 style={{ textAlign: "center" }}>{item.name}</h3>
+              <h4 style={{ textAlign: "center", color: "#1cb56d" }}>
+                {item.name}
+              </h4>
             </div>
           ))}
         </div>
       </div>
-      <div className={classes.flexBox2}>
-        <h4 style={{ paddingLeft: "20px" }}> All Menus</h4>
+      <div className={classes.flexBox}>
+        <h4 style={{ paddingLeft: "20px" }}> All Surveys</h4>
         <div className={classes.flexRow}>
-          {menus.map((item, key) => (
+          {surveys.map((item, key) => (
             <div className={classes.imgContainer}>
               <img className={classes.image} src={item.qrcode} alt="" />
-              <h3 style={{ textAlign: "center" }}>{item.name}</h3>
+              <h4 style={{ textAlign: "center", color: "#1cb56d" }}>
+                {item.name}
+              </h4>
             </div>
           ))}
         </div>
