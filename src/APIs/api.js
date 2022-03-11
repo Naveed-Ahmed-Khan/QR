@@ -25,5 +25,4 @@ export const deleteMenu = (mid) => API.post(`user/deleteMenu`, mid);
 export const fetchUserSurveys = (uid) => API.post(`user/userSurveys`, uid);
 export const fetchSurvey = (sid) => API.post(`user/getSurvey`, sid);
 export const deleteSurvey = (sid) => API.post(`user/deleteSurvey`, sid);
-//////////////////////
 export const editSurvey = (sid) => API.post(`user/editSurvey`, sid);

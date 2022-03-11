@@ -20,14 +20,14 @@ const EditSurvey = () => {
 
   const [survey, setSurvey] = useState({});
   const [error, seterror] = useState("");
-  const [surveyName, setSurveyName] = useState("");
+  const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [description, setDescription] = useState("");
   const [file1, setFile1] = useState("");
   const [check, setcheck] = useState(false);
 
-  const [headerImg, setheaderImg] = useState("");
+  const [image, setImage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -38,11 +38,11 @@ const EditSurvey = () => {
           try {
             seterror("");
             setSurvey(response.data.survey);
-            setSurveyName(response.data.survey.name);
+            setName(response.data.survey.name);
             setAddress(response.data.survey.address);
             setCity(response.data.survey.city);
             setDescription(response.data.survey.description);
-            setheaderImg(response.data.survey.image);
+            setImage(response.data.survey.image);
             setIsLoading(true);
           } catch (e) {
             return null;
@@ -83,8 +83,8 @@ const EditSurvey = () => {
       .then((result) => {
         file["base64"] = result;
         console.log("header:", result);
-        setheaderImg(result);
-        console.log("headerImg:", headerImg);
+        setImage(result);
+        console.log("headerImg:", image);
       })
       .catch((err) => {
         console.log(err);
@@ -93,11 +93,11 @@ const EditSurvey = () => {
 
   const updateSurvey = async () => {
     await editSurvey({
-      surveyName,
+      name,
       address,
       city,
       description,
-      headerImg,
+      image,
       user: Cookies.get("id"),
       sid: location.state.id,
     })
@@ -107,7 +107,7 @@ const EditSurvey = () => {
           try {
             seterror("");
             alert("Menu Edited");
-            navigate("/dashboard");
+            navigate("/dashboard/survey");
           } catch (e) {
             return null;
           }
@@ -147,8 +147,8 @@ const EditSurvey = () => {
                 }
                 text="Survey Name"
                 span="2"
-                setFun={setSurveyName}
-                val={surveyName}
+                setFun={setName}
+                val={name}
               />
               <Input
                 imageSrc=""

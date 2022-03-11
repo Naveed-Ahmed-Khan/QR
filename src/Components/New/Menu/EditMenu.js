@@ -153,7 +153,7 @@ const EditMenu = () => {
           try {
             seterror("");
             alert("Menu Edited");
-            navigate("/dashboard");
+            navigate("/dashboard/menu");
           } catch (e) {
             return null;
           }
@@ -405,7 +405,7 @@ const EditMenu = () => {
                   variant="contained"
                   style={{ margin: 0 }}
                   id="button"
-                  onClick={() => updateMenu()}
+                  onClick={updateMenu}
                 >
                   Update Item
                 </Button>

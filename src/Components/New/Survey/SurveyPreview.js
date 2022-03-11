@@ -32,7 +32,6 @@ const SurveyPreview = (props) => {
           <p>{props.description}</p>
         </header>
       </div>
-      <div></div>
     </div>
   );
 };
